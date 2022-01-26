@@ -232,7 +232,7 @@ GEM
     parser (3.1.0.0)
       ast (~> 2.4.1)
     public_suffix (4.0.6)
-    puma (5.5.2)
+    puma (5.6.0)
       nio4r (~> 2.0)
     pundit (2.1.1)
       activesupport (>= 3.0.0)
@@ -393,7 +393,7 @@ DEPENDENCIES
   mysql_in_docker
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
-  puma (~> 5.0)
+  puma (~> 5.6)
   pundit
   rails (~> 7.0.0)
   rails-i18n
