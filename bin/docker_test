@@ -4,5 +4,5 @@ set -eu
 
 COMPOSE_FILE=./config/docker/rails_template_test/docker-compose.yml
 
-docker compose --file=${COMPOSE_FILE} build
+docker compose --file=${COMPOSE_FILE} build --build-arg NODE_VERSION=$(cat .node-version)
 docker compose --file=${COMPOSE_FILE} run --rm app

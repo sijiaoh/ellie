@@ -11,6 +11,18 @@ RUN apt clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app/
 
+ARG NODE_VERSION
+ENV NODE_VERSION ${NODE_VERSION}
+ENV PATH /root/.nvm/versions/node/v${NODE_VERSION}/bin:${PATH}
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
+  && . ~/.nvm/nvm.sh \
+  && nvm version \
+  && nvm install ${NODE_VERSION}
+RUN npm install --global yarn
+
+COPY package.json yarn.lock /app/
+RUN yarn install --frozen-lockfile
+
 COPY Gemfile* /app/
 RUN bundle config set --local without development \
   && bundle install --jobs=4 \
