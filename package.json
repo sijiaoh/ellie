@@ -1,0 +1,10 @@
+{
+  "name": "rails_template",
+  "scripts": {
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^2.8.3"
+  }
+}

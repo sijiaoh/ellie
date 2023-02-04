@@ -16,3 +16,4 @@ done
 
 bundle exec rubocop ${QUIET:+--format quiet} ${AUTOCORRECT:+--autocorrect}
 bundle exec erblint . ${AUTOCORRECT:+--autocorrect}
+yarn lint${AUTOCORRECT:+:fix}
