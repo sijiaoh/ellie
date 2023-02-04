@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe Utils do
   describe ".env_or_credential" do
-    subject(:returns) { described_class.env_or_credential key }
+    subject(:returns) { Utils.env_or_credential key }
 
     let(:key) { "a.b_c" }
     let(:env_value) { "env_value" }

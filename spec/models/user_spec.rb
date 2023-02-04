@@ -33,37 +33,37 @@ describe User do
     context "when checked" do
       it "creates user" do
         user.terms_of_service = "1"
-        expect { user.save! }.to change(described_class, :count).by(1)
+        expect { user.save! }.to change(User, :count).by(1)
       end
     end
 
     context "when unchecked" do
       it "faileds" do
         user.terms_of_service = "0"
-        expect { user.save }.not_to change(described_class, :count)
+        expect { user.save }.not_to change(User, :count)
       end
     end
   end
 
   describe ".from_omniauth" do
-    subject!(:user) { described_class.build_with_social_profile({}, omniauth_data).tap(&:save) }
+    subject!(:user) { User.build_with_social_profile({}, omniauth_data).tap(&:save) }
 
     let(:omniauth_data) { Faker::Omniauth.google.with_indifferent_access }
     let(:access_token) { ActiveSupport::InheritableOptions.new omniauth_data }
 
     it "returns correct user" do
-      expect(described_class.from_omniauth(access_token)).to eq user
+      expect(User.from_omniauth(access_token)).to eq user
     end
   end
 
   describe ".build_with_social_profile" do
-    subject(:user) { described_class.build_with_social_profile({}, omniauth_data) }
+    subject(:user) { User.build_with_social_profile({}, omniauth_data) }
 
     let(:omniauth_data) { Faker::Omniauth.google.with_indifferent_access }
 
     it "creates user and social_profile" do
       expect { user.save! }
-        .to change(described_class, :count).by(1).and change(SocialProfile, :count).by(1)
+        .to change(User, :count).by(1).and change(SocialProfile, :count).by(1)
     end
   end
 

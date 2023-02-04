@@ -33,3 +33,6 @@ RSpec/ExampleLength:
 RSpec/MultipleExpectations:
   Exclude:
     - spec/system/**/*.rb
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit

@@ -30,7 +30,7 @@ describe Post do
   context "when create" do
     subject(:post) { create(:post, user:) }
 
-    let(:editor_type) { described_class.editor_type.values.sample }
+    let(:editor_type) { Post.editor_type.values.sample }
     let(:user) do
       create(:user).tap do |user|
         user.setting.update!(editor_type:)
