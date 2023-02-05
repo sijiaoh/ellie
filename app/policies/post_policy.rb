@@ -22,7 +22,7 @@ class PostPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.present?
-        scope.all
+        scope.where(user:).or(scope.where(published: true))
       else
         scope.where(published: true)
       end
