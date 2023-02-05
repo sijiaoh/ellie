@@ -1,6 +1,5 @@
-<%= simple_form_for post do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= custom_form_for post do |f| %>
+  <%= f.base_errors %>
 
   <%= f.input :title %>
   <%= f.input :content, as: :content_editor, editor_type: post.editor_type, input_html: { class: "h-[30rem]" } %>

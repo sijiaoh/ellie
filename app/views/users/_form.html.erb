@@ -1,6 +1,5 @@
-<%= simple_form_for user do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= custom_form_for user do |f| %>
+  <%= f.base_errors %>
 
   <%= f.input :terms_of_service, as: :boolean %>
 
