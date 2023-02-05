@@ -23,6 +23,8 @@ class Post < ApplicationRecord
 
   before_create :set_editor_type_from_author
 
+  scope :published, -> { where(published: true) }
+
   private
 
   def set_editor_type_from_author

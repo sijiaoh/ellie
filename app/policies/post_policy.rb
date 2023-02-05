@@ -21,10 +21,12 @@ class PostPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.present?
-        scope.where(author: user).or(scope.where(published: true))
+      if user&.is_admin?
+        scope.all
+      elsif user.present?
+        scope.where(author: user).or(scope.published)
       else
-        scope.where(published: true)
+        scope.published
       end
     end
   end
