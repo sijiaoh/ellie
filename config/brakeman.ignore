@@ -3,53 +3,19 @@
     {
       "warning_type": "Dynamic Render Path",
       "warning_code": 15,
-      "fingerprint": "c3021fd99dfbbab8476d2a3d339c1c89dd1b39abde216143c2c0cbfed841f025",
-      "check_name": "Render",
-      "message": "Render path contains parameter value",
-      "file": "app/views/users/show.html.erb",
-      "line": 4,
-      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => authorize(policy_scope(User).find_by!(:hashid => params[:hashid])), {})",
-      "render_path": [
-        {
-          "type": "controller",
-          "class": "UsersController",
-          "method": "show",
-          "line": 12,
-          "file": "app/controllers/users_controller.rb",
-          "rendered": {
-            "name": "users/show",
-            "file": "app/views/users/show.html.erb"
-          }
-        }
-      ],
-      "location": {
-        "type": "template",
-        "template": "users/show"
-      },
-      "user_input": "params[:hashid]",
-      "confidence": "Weak",
-      "cwe_id": [
-        22
-      ],
-      "note": ""
-    },
-    {
-      "warning_type": "Dynamic Render Path",
-      "warning_code": 15,
-      "fingerprint": "fc96cae1ede9146c5088bd670e79a482b8b45c489808c90b7e7ac9488adf800a",
+      "fingerprint": "7f1b0d53d95bd2e0a3336c9d2c20c25e63c8e8b87fc6bd3d1a65a3760c1019e3",
       "check_name": "Render",
       "message": "Render path contains parameter value",
       "file": "app/views/posts/show.html.erb",
       "line": 8,
       "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
-      "code": "render(action => authorize(policy_scope(Post).find_by!(:hashid => params[:hashid])), {})",
+      "code": "render(action => policy_scope(Post).find_by!(:hashid => params[:hashid]), {})",
       "render_path": [
         {
           "type": "controller",
           "class": "PostsController",
           "method": "show",
-          "line": 9,
+          "line": 10,
           "file": "app/controllers/posts_controller.rb",
           "rendered": {
             "name": "posts/show",
@@ -67,8 +33,42 @@
         22
       ],
       "note": ""
+    },
+    {
+      "warning_type": "Dynamic Render Path",
+      "warning_code": 15,
+      "fingerprint": "c105eb4442ffe72084829afeeddef33988bdf793008174ccf7bc247761884c1c",
+      "check_name": "Render",
+      "message": "Render path contains parameter value",
+      "file": "app/views/users/show.html.erb",
+      "line": 4,
+      "link": "https://brakemanscanner.org/docs/warning_types/dynamic_render_path/",
+      "code": "render(action => policy_scope(User).find_by!(:hashid => params[:hashid]), {})",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "UsersController",
+          "method": "show",
+          "line": 13,
+          "file": "app/controllers/users_controller.rb",
+          "rendered": {
+            "name": "users/show",
+            "file": "app/views/users/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "users/show"
+      },
+      "user_input": "params[:hashid]",
+      "confidence": "Weak",
+      "cwe_id": [
+        22
+      ],
+      "note": ""
     }
   ],
-  "updated": "2022-08-16 03:36:06 +0900",
-  "brakeman_version": "5.3.1"
+  "updated": "2023-02-05 11:07:07 +0900",
+  "brakeman_version": "5.4.0"
 }
