@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -eu
+
+./bin/importmap outdated | grep '^| ' | tail -n +2 | awk '{print $2}' | xargs ./bin/importmap pin
