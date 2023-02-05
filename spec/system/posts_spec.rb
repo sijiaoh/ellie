@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "Posts" do
-  let(:post) { build(:post, user: current_user) }
+  let(:post) { build(:post, author: current_user) }
 
   def to_label(attribute)
     Post.human_attribute_name attribute
@@ -57,7 +57,7 @@ describe "Posts" do
   describe "edit" do
     subject(:path) { edit_post_path existing_post }
 
-    let(:existing_post) { create(:post, user: current_user, published: !post.published) }
+    let(:existing_post) { create(:post, author: current_user, published: !post.published) }
 
     include_context "when signed in"
 

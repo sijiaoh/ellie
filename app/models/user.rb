@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   has_one :setting, class_name: "Users::Setting", dependent: :destroy
   has_many :social_profiles, dependent: :destroy
-  has_many :posts, dependent: :destroy
+  has_many :posts, inverse_of: :author, dependent: :destroy
 
   validates :terms_of_service, acceptance: true
 

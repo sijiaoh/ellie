@@ -13,7 +13,7 @@ describe User do
   describe "associations" do
     it { is_expected.to have_one(:setting).class_name("Users::Setting").dependent(:destroy) }
     it { is_expected.to have_many(:social_profiles).dependent(:destroy) }
-    it { is_expected.to have_many(:posts).dependent(:destroy) }
+    it { is_expected.to have_many(:posts).inverse_of(:author).dependent(:destroy) }
   end
 
   describe "validations" do

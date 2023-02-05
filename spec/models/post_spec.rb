@@ -6,7 +6,7 @@
 #  title       :string(255)      not null
 #  content     :text(65535)      not null
 #  published   :boolean          default(FALSE), not null
-#  user_id     :bigint           not null
+#  author_id   :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  hashid      :string(255)
@@ -16,7 +16,7 @@ require "rails_helper"
 
 describe Post do
   describe "associations" do
-    it { is_expected.to belong_to(:user) }
+    it { is_expected.to belong_to(:author).class_name("User") }
   end
 
   describe "validations" do
@@ -28,16 +28,16 @@ describe Post do
   end
 
   context "when create" do
-    subject(:post) { create(:post, user:) }
+    subject(:post) { create(:post, author:) }
 
     let(:editor_type) { Post.editor_type.values.sample }
-    let(:user) do
+    let(:author) do
       create(:user).tap do |user|
         user.setting.update!(editor_type:)
       end
     end
 
-    it "sets editor_type from user's setting" do
+    it "sets editor_type from author's setting" do
       expect(post.editor_type).to eq(editor_type)
     end
   end
@@ -45,6 +45,6 @@ describe Post do
   describe "#content" do
     subject(:post) { create(:post) }
 
-  include_examples "has content concern"
+    include_examples "has content concern"
   end
 end

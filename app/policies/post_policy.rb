@@ -4,7 +4,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def show?
-    user&.is_admin? || record.published? || user == record.user
+    user&.is_admin? || record.published? || user == record.author
   end
 
   def create?
@@ -12,17 +12,17 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    user&.is_admin? || user == record.user
+    user&.is_admin? || user == record.author
   end
 
   def destroy?
-    user&.is_admin? || user == record.user
+    user&.is_admin? || user == record.author
   end
 
   class Scope < Scope
     def resolve
       if user.present?
-        scope.where(user:).or(scope.where(published: true))
+        scope.where(author: user).or(scope.where(published: true))
       else
         scope.where(published: true)
       end

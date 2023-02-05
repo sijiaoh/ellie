@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = policy_scope(Post).includes(:user).page(params[:page])
+    @posts = policy_scope(Post).includes(:author).page(params[:page])
     authorize @posts
   end
 
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def create
-    @post = Post.new(post_params.merge(user: current_user))
+    @post = Post.new(post_params.merge(author: current_user))
     authorize @post
     skip_policy_scope
 

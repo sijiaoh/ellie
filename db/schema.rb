@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_040718) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_05_071011) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.boolean "published", default: false, null: false
-    t.bigint "user_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "hashid"
     t.integer "editor_type", default: 0, null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
     t.index ["hashid"], name: "index_posts_on_hashid", unique: true
-    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_040718) do
     t.index ["user_id"], name: "index_users_settings_on_user_id", unique: true
   end
 
-  add_foreign_key "posts", "users"
+  add_foreign_key "posts", "users", column: "author_id"
   add_foreign_key "social_profiles", "users"
   add_foreign_key "users_settings", "users"
 end
