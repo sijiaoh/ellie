@@ -4,7 +4,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def show?
-    record.published? || user == record.user
+    user&.is_admin? || record.published? || user == record.user
   end
 
   def create?
