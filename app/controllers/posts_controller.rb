@@ -2,20 +2,23 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = authorize policy_scope(Post).includes(:user).page(params[:page])
+    @posts = policy_scope(Post).includes(:user).page(params[:page])
+    authorize @posts
   end
 
   def show; end
 
   def new
-    @post = authorize Post.new(editor_type: current_user.setting.editor_type)
+    @post = Post.new(editor_type: current_user.setting.editor_type)
+    authorize @post
     skip_policy_scope
   end
 
   def edit; end
 
   def create
-    @post = authorize Post.new(post_params.merge(user: current_user))
+    @post = Post.new(post_params.merge(user: current_user))
+    authorize @post
     skip_policy_scope
 
     if @post.save
@@ -41,7 +44,8 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = authorize policy_scope(Post).find_by!(hashid: params[:hashid])
+    @post = policy_scope(Post).find_by!(hashid: params[:hashid])
+    authorize @post
   end
 
   def post_params

@@ -5,18 +5,21 @@ class UsersController < ApplicationController
   before_action :set_omniauth_data, only: %i[new create]
 
   def index
-    @users = authorize policy_scope(User).all
+    @users = policy_scope(User).all
+    authorize @users
   end
 
   def show; end
 
   def new
-    @user = authorize User.new
+    @user = User.new
+    authorize @user
     skip_policy_scope
   end
 
   def create
-    @user = authorize User.build_with_social_profile(user_params, @omniauth_data)
+    @user = User.build_with_social_profile(user_params, @omniauth_data)
+    authorize @user
     skip_policy_scope
 
     if @user.save
@@ -29,7 +32,8 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = authorize policy_scope(User).find_by!(hashid: params[:hashid])
+    @user = policy_scope(User).find_by!(hashid: params[:hashid])
+    authorize @user
   end
 
   def user_params
