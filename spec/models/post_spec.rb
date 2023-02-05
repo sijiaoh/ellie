@@ -42,5 +42,9 @@ describe Post do
     end
   end
 
+  describe "#content" do
+    subject(:post) { create(:post) }
+
   include_examples "has content concern"
+  end
 end
