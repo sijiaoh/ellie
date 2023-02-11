@@ -56,3 +56,7 @@ ja:
     post:
       publishing: "公開中"
       unpublished: "未公開"
+
+  inputs:
+    markdown_input:
+      toggle: "切り替え"

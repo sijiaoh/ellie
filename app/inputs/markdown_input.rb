@@ -6,12 +6,31 @@ class MarkdownInput < SimpleForm::Inputs::Base
       :div,
       "data-controller": "markdown-editor",
       "data-action": "code-editor:update->markdown-editor#updateViewerContent",
+      "data-markdown-editor-toggle-value": input_html_options.fetch(:toggle, ""),
       **input_html_options,
-      class: helpers.class_names("flex", input_html_options[:class])
+      class: helpers.class_names("flex flex-col", input_html_options[:class])
     ) do
       [
-        @builder.input(attribute_name, as: :code_editor, label: false, wrapper: false, input_html: { class: "w-1/2" }),
-        helpers.markdown_viewer(object[attribute_name], "data-markdown-editor-target": "viewer", class: "w-1/2")
+        helpers.content_tag(:div, class: "flex flex-1") do
+          [
+            @builder.input(
+              attribute_name,
+              as: :code_editor,
+              label: false,
+              wrapper: false,
+              input_html: { "data-markdown-editor-target": "editor", class: "flex-1" }
+            ),
+            helpers.markdown_viewer(object[attribute_name], "data-markdown-editor-target": "viewer", class: "flex-1")
+          ].sum
+        end,
+        helpers.content_tag(:div, class: "flex flex-row-reverse") do
+          helpers.button_primary_tag(
+            t("inputs.markdown_input.toggle"),
+            type: :button,
+            "data-markdown-editor-target": "toggle",
+            "data-action": "markdown-editor#toggle"
+          )
+        end
       ].sum
     end
   end
