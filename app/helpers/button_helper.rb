@@ -17,6 +17,10 @@ module ButtonHelper
   end
 
   %i[base primary secondary danger].each do |color|
+    define_method "button_#{color}_tag" do |*args, **options, &block|
+      button_tag(*args, **options, class: public_send("button_#{color}_style"), &block)
+    end
+
     define_method "button_#{color}" do |*args, &block|
       type = args.last[:type] if args.last.is_a? Hash
 
