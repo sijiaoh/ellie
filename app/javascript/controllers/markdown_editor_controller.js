@@ -1,8 +1,8 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["toggle", "editor", "viewer"];
-  static values = { toggle: String };
+  static targets = ["toggleButton", "editor", "viewer"];
+  static values = { toggleMode: String };
 
   updateViewerContent(event) {
     const viewerController =
@@ -19,26 +19,35 @@ export default class extends Controller {
   }
 
   syncButtonShow() {
-    if (this.toggleValue == "") this.toggleTarget.classList.add("hidden");
-    else this.toggleTarget.classList.remove("hidden");
+    if (this.toggleModeValue == "") this.hideElement(this.toggleButtonTarget);
+    else this.showElement(this.toggleButtonTarget);
   }
 
   toggle() {
-    if (this.toggleValue == "") return;
+    if (this.toggleModeValue == "") return;
 
-    this.toggleValue = this.toggleValue == "editor" ? "viewer" : "editor";
+    this.toggleModeValue =
+      this.toggleModeValue == "editor" ? "viewer" : "editor";
     this.syncShows();
   }
 
   syncShows() {
-    if (this.toggleValue == "") return;
+    if (this.toggleModeValue == "") return;
 
-    if (this.toggleValue == "editor") {
-      this.editorTarget.classList.remove("hidden");
-      this.viewerTarget.classList.add("hidden");
-    } else if (this.toggleValue == "viewer") {
-      this.editorTarget.classList.add("hidden");
-      this.viewerTarget.classList.remove("hidden");
+    if (this.toggleModeValue == "editor") {
+      this.showElement(this.editorTarget);
+      this.hideElement(this.viewerTarget);
+    } else if (this.toggleModeValue == "viewer") {
+      this.hideElement(this.editorTarget);
+      this.showElement(this.viewerTarget);
     }
+  }
+
+  showElement(element) {
+    element.classList.remove("hidden");
+  }
+
+  hideElement(element) {
+    element.classList.add("hidden");
   }
 }
