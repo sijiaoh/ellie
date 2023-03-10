@@ -18,6 +18,7 @@ services:
       RAILS_TEMPLATE_DATABASE_HOST: db
     volumes:
       - ../../..:/app
+      - tmp:/app/tmp
       - vendor_bundle:/app/vendor/bundle
       - node_modules:/app/node_modules
     depends_on:
@@ -27,5 +28,6 @@ services:
     # Default memory limit is 64MB, which is not enough for Chrome.
     shm_size: 256m
 volumes:
+  tmp:
   vendor_bundle:
   node_modules:
