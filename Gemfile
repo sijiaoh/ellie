@@ -65,4 +65,5 @@ group :test do
   gem "webdrivers", require: false
 
   gem "faker"
+  gem "simplecov", require: false
 end
