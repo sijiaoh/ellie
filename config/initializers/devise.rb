@@ -16,6 +16,10 @@ Devise.setup do |config|
   config.password_length = 6..128
   config.reset_password_within = 6.hours
 
+  # Hotwire/Turbo configurations.
+  config.responder.error_status = :unprocessable_entity
+  config.responder.redirect_status = :see_other
+
   google_client_id = Utils.env_or_credential "oauth.google_client_id", ""
   google_client_secret = Utils.env_or_credential "oauth.google_client_secret", ""
   config.omniauth :google_oauth2, google_client_id, google_client_secret
