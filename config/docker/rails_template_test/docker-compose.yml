@@ -20,6 +20,7 @@ services:
       - ../../..:/app
       - tmp:/app/tmp
       - assets_builds:/app/app/assets/builds
+      - coverage:/app/coverage
       - vendor_bundle:/app/vendor/bundle
       - node_modules:/app/node_modules
     depends_on:
@@ -31,5 +32,6 @@ services:
 volumes:
   tmp:
   assets_builds:
+  coverage:
   vendor_bundle:
   node_modules:
