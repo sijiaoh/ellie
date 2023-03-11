@@ -8,7 +8,7 @@ export default class extends Controller {
 
   contentValueChanged() {
     this.contentTarget.innerHTML = DOMPurify.sanitize(
-      marked(this.contentValue)
+      marked(this.contentValue, { breaks: true })
     );
     window.Prism.highlightAllUnder(this.contentTarget);
   }
