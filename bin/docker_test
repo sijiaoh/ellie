@@ -2,13 +2,13 @@
 
 set -eu
 
-build=false
+nobuild=false
 args=()
 
 while (( $# > 0 )); do
   case $1 in
-    --build)
-      build=true
+    --no-build | -nb)
+      nobuild=true
       ;;
     *)
       args+=("$1")
@@ -19,7 +19,7 @@ done
 
 COMPOSE_FILE=./config/docker/rails_template_test/docker-compose.yml
 
-if $build; then
+if [[ $nobuild == false ]]; then
   docker compose --file=${COMPOSE_FILE} build --build-arg NODE_VERSION=$(cat .node-version)
 fi
 docker compose --file=${COMPOSE_FILE} run --rm app "${args[@]}"
