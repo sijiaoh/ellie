@@ -7,6 +7,10 @@ class MarkdownInput < SimpleForm::Inputs::Base
   #   If responsive mode is enabled, the toggle mode will disable on desktop.
   #   - true: [default] enable responsive mode.
   #   - false: disable responsive mode.
+  # input_html[:toggle_button]:
+  #   Show or hide toggle button.
+  #   - true: [default] show toggle button.
+  #   - false: hide toggle button.
   def input(_wrapper_options) # rubocop:disable Metrics/MethodLength
     return @builder.text_area(attribute_name) if Rails.env.test?
 
@@ -49,9 +53,15 @@ class MarkdownInput < SimpleForm::Inputs::Base
   end
 
   def toggle_button # rubocop:disable Metrics/MethodLength
+    toggle_button_enable = input_html_options.fetch(:toggle_button, true)
+
     content_tag(
       :div,
-      class: class_names("flex flex-row-reverse", "md:hidden": responsive_mode)
+      class: class_names(
+        "flex flex-row-reverse",
+        "md:hidden": responsive_mode,
+        hidden: !toggle_button_enable
+      )
     ) do
       button_primary_tag(
         t("inputs.markdown_input.toggle"),
