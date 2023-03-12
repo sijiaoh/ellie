@@ -10,7 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  hashid      :string(255)
-#  editor_type :integer          default("textarea"), not null
+#  editor_type :integer          not null
 #
 class Post < ApplicationRecord
   include HashidSluggable
