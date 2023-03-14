@@ -1,5 +1,13 @@
+ARG NODE_VERSION
 ARG RUBY_VERSION
+
+FROM node:${NODE_VERSION} as node
+
 FROM ruby:${RUBY_VERSION}
+
+COPY --from=node /opt/yarn-v* /opt/yarn
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+RUN ln -fs /opt/yarn/bin/yarn /usr/local/bin/yarn
 
 RUN apt update -qq
 
@@ -11,15 +19,6 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app/
-
-ARG NODE_VERSION
-ENV NODE_VERSION ${NODE_VERSION}
-ENV PATH /root/.nvm/versions/node/v${NODE_VERSION}/bin:${PATH}
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
-  && . ~/.nvm/nvm.sh \
-  && nvm version \
-  && nvm install ${NODE_VERSION}
-RUN npm install --global yarn
 
 COPY package.json yarn.lock /app/
 RUN yarn install --frozen-lockfile
