@@ -20,6 +20,6 @@ done
 COMPOSE_FILE=./config/docker/rails_template_test/docker-compose.yml
 
 if [[ $nobuild == false ]]; then
-  docker compose --file=${COMPOSE_FILE} build --build-arg NODE_VERSION=$(cat .node-version)
+  docker compose --file=${COMPOSE_FILE} build --build-arg RUBY_VERSION=$(cat .ruby-version) --build-arg NODE_VERSION=$(cat .node-version)
 fi
 docker compose --file=${COMPOSE_FILE} run --rm app "${args[@]}"

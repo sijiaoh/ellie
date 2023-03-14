@@ -1,4 +1,5 @@
-FROM ruby:3.2.1
+ARG RUBY_VERSION
+FROM ruby:${RUBY_VERSION}
 
 RUN apt update -qq \
   && rm -rf /var/lib/apt/lists/*
