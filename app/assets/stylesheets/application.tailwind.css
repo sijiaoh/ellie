@@ -24,6 +24,9 @@
   .horizontal-center {
     @apply horizontal items-center;
   }
+  .center {
+    @apply flex justify-center items-center;
+  }
 
   .scaffold-buttons {
     @apply horizontal-center gap-3;
