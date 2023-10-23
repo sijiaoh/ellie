@@ -7,7 +7,7 @@ module FormHelper
     end
   end
 
-  def custom_form_for(object, *args, **options, &)
-    simple_form_for(object, *args, **options, builder: FormBuilder, &)
+  def custom_form_for(object, *, **, &)
+    simple_form_for(object, *, **, builder: FormBuilder, &)
   end
 end

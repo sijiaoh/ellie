@@ -36,3 +36,6 @@ RSpec/MultipleExpectations:
 
 RSpec/DescribedClass:
   EnforcedStyle: explicit
+
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: false
