@@ -4,11 +4,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show]
   before_action :set_omniauth_data, only: %i[new create]
 
-  def index
-    @users = policy_scope(User).all
-    authorize @users
-  end
-
   def show; end
 
   def new

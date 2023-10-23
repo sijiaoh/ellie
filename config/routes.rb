@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete "sign_out", to: "sessions#destroy"
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
-  resources :users, param: :hashid, only: %i[index show create] do
+  resources :users, param: :hashid, only: %i[show create] do
     scope module: :users do
       resource :setting, only: %i[show edit update]
     end
