@@ -137,6 +137,7 @@ GEM
       rainbow
       rubocop
       smart_properties
+    error_highlight (0.5.1)
     erubi (1.12.0)
     erubis (2.7.0)
     factory_bot (6.2.1)
@@ -446,6 +447,7 @@ DEPENDENCIES
   devise-i18n
   enumerize
   erb_lint
+  error_highlight
   factory_bot_rails
   faker
   hashids
