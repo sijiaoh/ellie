@@ -7,3 +7,13 @@ module RailsTemplate
     end
   end
 end
+
+# For annotate command Zeitwerk::NameError error.
+module Generators
+  module RailsTemplate
+    module Mailer
+      class MailerGenerator # rubocop:disable Lint/EmptyClass
+      end
+    end
+  end
+end

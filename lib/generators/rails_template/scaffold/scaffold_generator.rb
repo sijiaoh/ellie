@@ -46,3 +46,13 @@ module RailsTemplate
     end
   end
 end
+
+# For annotate command Zeitwerk::NameError error.
+module Generators
+  module RailsTemplate
+    module Scaffold
+      class ScaffoldGenerator # rubocop:disable Lint/EmptyClass
+      end
+    end
+  end
+end
