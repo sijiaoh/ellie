@@ -1,13 +1,13 @@
 <header class="horizontal-center justify-between">
   <div>
-    <%= link_base t("title"), root_url %>
+    <%= button_link_base t("title"), root_url %>
   </div>
   <div class="horizontal">
     <% if user.present? %>
-      <%= link_primary Users::Setting.model_name.human, user_setting_path(current_user) %>
+      <%= button_link_primary Users::Setting.model_name.human, user_setting_path(current_user) %>
       <%= button_primary t("sign_out"), sign_out_path, method: :delete %>
     <% else %>
-      <%= link_primary t("sessions.new.title"), sign_in_path %>
+      <%= button_link_primary t("sessions.new.title"), sign_in_path %>
     <% end %>
   </div>
 </header>
