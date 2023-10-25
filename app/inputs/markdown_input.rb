@@ -22,7 +22,7 @@ class MarkdownInput < SimpleForm::Inputs::Base
       **input_html_options,
       class: class_names("flex flex-col", input_html_options[:class])
     ) do
-      [editor_viewer, toggle_button].sum
+      [editor_viewer, toggle_button].reduce(:+)
     end
   end
 
@@ -48,7 +48,7 @@ class MarkdownInput < SimpleForm::Inputs::Base
           "data-markdown-editor-target": "viewer",
           class: class_names("flex-1", "md:flex": responsive_mode)
         )
-      ].sum
+      ].reduce(:+)
     end
   end
 

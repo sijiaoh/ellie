@@ -39,3 +39,9 @@ RSpec/DescribedClass:
 
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
+
+# Use .reduce(:+) to join view elements in helpers.
+Performance/Sum:
+  Exclude:
+    - app/inputs/**/*.rb
+    - app/helpers/**/*.rb
