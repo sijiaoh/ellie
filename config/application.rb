@@ -35,5 +35,7 @@ module RailsTemplate
     end
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.default_editor_type = :textarea
   end
 end
