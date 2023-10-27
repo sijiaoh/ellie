@@ -20,7 +20,7 @@ module ButtonHelper
     button_tag(*, **, class: public_send("btn_#{color}_style"), &)
   end
 
-  def btn_to(name, options, type: :btn, color: :primary, **html_options, &)
+  def btn_to(name, options = {}, type: :button, color: :primary, **html_options, &)
     klass = class_names public_send("btn_#{color}_style"), html_options[:class]
     html_options[:class] = klass
 

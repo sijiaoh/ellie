@@ -32,6 +32,9 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Enabled: false
 
+Metrics/ParameterLists:
+  Enabled: false
+
 RSpec/ExampleLength:
   Exclude:
     - spec/system/**/*.rb
