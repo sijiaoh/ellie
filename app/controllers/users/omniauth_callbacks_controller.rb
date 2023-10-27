@@ -1,6 +1,6 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    def google_oauth2 # rubocop:disable Metrics/AbcSize
+    def google_oauth2
       authorize %i[users omniauth_callbacks]
       skip_policy_scope
 

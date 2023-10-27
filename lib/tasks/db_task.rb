@@ -1,7 +1,7 @@
 require "./lib/tasks/backend_task"
 
 class DbTask < BackendTask
-  def initialize # rubocop:disable Metrics/MethodLength
+  def initialize
     database_config = Rails.configuration.database_configuration[Rails.env]
     super(
       image: "mysql",

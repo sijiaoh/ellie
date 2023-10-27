@@ -71,7 +71,7 @@ class BackendTask
     "#{@image}:#{@version}"
   end
 
-  def up_command # rubocop:disable Metrics/MethodLength
+  def up_command
     env = @env.map { |e| ["--env", e] }.flatten
 
     if @volume_path.present?

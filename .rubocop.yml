@@ -26,6 +26,12 @@ Metrics/BlockLength:
     - config/**/*.rb
     - spec/**/*.rb
 
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
 RSpec/ExampleLength:
   Exclude:
     - spec/system/**/*.rb

@@ -11,7 +11,7 @@ class MarkdownInput < SimpleForm::Inputs::Base
   #   Show or hide toggle button.
   #   - true: [default] show toggle button.
   #   - false: hide toggle button.
-  def input(_wrapper_options) # rubocop:disable Metrics/MethodLength
+  def input(_wrapper_options)
     return @builder.text_area(attribute_name) if Rails.env.test?
 
     content_tag(
@@ -30,7 +30,7 @@ class MarkdownInput < SimpleForm::Inputs::Base
 
   delegate :content_tag, :class_names, :button_primary_tag, :markdown_viewer, to: :helpers
 
-  def editor_viewer # rubocop:disable Metrics/MethodLength
+  def editor_viewer
     content_tag(:div, class: "flex flex-1") do
       [
         @builder.input(
@@ -52,7 +52,7 @@ class MarkdownInput < SimpleForm::Inputs::Base
     end
   end
 
-  def toggle_button # rubocop:disable Metrics/MethodLength
+  def toggle_button
     toggle_button_enable = input_html_options.fetch(:toggle_button, true)
 
     content_tag(

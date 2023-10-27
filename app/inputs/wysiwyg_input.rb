@@ -1,5 +1,5 @@
 class WysiwygInput < SimpleForm::Inputs::Base
-  def input(_wrapper_options) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  def input(_wrapper_options)
     return @builder.text_area(attribute_name) if Rails.env.test?
 
     helpers.content_tag(
