@@ -26,7 +26,7 @@ SimpleForm.setup do |config|
   config.error_notification_tag = :div
   config.browser_validations = false
 
-  config.button_class = button_primary_style
+  config.button_class = btn_primary_style
   config.error_notification_class = error_message_class
   config.default_form_class = "vertical gap-default my-default"
   config.boolean_label_class = "horizontal-center gap-2"

@@ -1,32 +1,33 @@
 module PostsHelper
-  def posts_button_link
-    button_link_primary t("posts.index.title"), posts_path if policy(:post).index?
+  def posts_btn_link
+    btn_to t("posts.index.title"), posts_path, type: :link if policy(:post).index?
   end
 
-  def back_to_posts_button_link
-    button_link_secondary t("back_to_index"), posts_path if policy(:post).index?
+  def back_to_posts_btn_link
+    btn_to t("back_to_index"), posts_path, type: :link, color: :secondary if policy(:post).index?
   end
 
-  def post_button_link(post)
-    button_link_primary t("detail"), post if policy(post).show?
+  def post_btn_link(post)
+    btn_to t("detail"), post, type: :link if policy(post).show?
   end
 
-  def new_post_button_link
-    button_link_primary t("posts.new.title"), new_post_path if policy(:post).new?
+  def new_post_btn_link
+    btn_to t("posts.new.title"), new_post_path, type: :link if policy(:post).new?
   end
 
-  def edit_post_button_link(post)
-    button_link_primary t("edit"), [:edit, post] if policy(post).edit?
+  def edit_post_btn_link(post)
+    btn_to t("edit"), [:edit, post], type: :link if policy(post).edit?
   end
 
   def destroy_post_button(post)
     return unless policy(post).destroy?
 
-    button_danger(
+    btn_to(
       t("destroy"),
       post,
       method: :delete,
-      form: { data: { turbo_confirm: t("destroy_confirm") } }
+      form: { data: { turbo_confirm: t("destroy_confirm") } },
+      color: :danger
     )
   end
 end
