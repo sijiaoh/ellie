@@ -1,7 +1,7 @@
 require "open3"
 
 class BackendTask
-  def initialize(image:, version:, port:, container_port: nil, volume_path: nil, env: []) # rubocop:disable Metrics/ParameterLists
+  def initialize(image:, version:, port:, container_port: nil, volume_path: nil, env: [])
     @image = image
     @version = version
     @port = port
