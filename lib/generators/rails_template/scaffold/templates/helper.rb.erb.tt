@@ -1,22 +1,22 @@
 <% module_namespacing do -%>
 module <%= controller_class_name %>Helper
-  def <%= plural_route_name %>_link
+  def <%= plural_route_name %>_button_link
     button_link_primary t("<%= view_i18n_scope %>.index.title"), <%= plural_route_name %>_path if policy(<%= class_name %>).index?
   end
 
-  def back_to_<%= plural_route_name %>_link
+  def back_to_<%= plural_route_name %>_button_link
     button_link_secondary t("back_to_index"), <%= plural_route_name %>_path if policy(<%= class_name %>).index?
   end
 
-  def <%= singular_route_name %>_link(<%= singular_table_name %>)
+  def <%= singular_route_name %>_button_link(<%= singular_table_name %>)
     button_link_primary t("detail"), <%= singular_table_name %> if policy(<%= singular_table_name %>).show?
   end
 
-  def new_<%= singular_route_name %>_link
+  def new_<%= singular_route_name %>_button_link
     button_link_primary t("<%= view_i18n_scope %>.new.title"), new_<%= singular_route_name %>_path if policy(<%= class_name %>).new?
   end
 
-  def edit_<%= singular_route_name %>_link(<%= singular_table_name %>)
+  def edit_<%= singular_route_name %>_button_link(<%= singular_table_name %>)
     button_link_primary t("edit"), [:edit, <%= singular_table_name %>] if policy(<%= singular_table_name %>).edit?
   end
 

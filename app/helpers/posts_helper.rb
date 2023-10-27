@@ -1,21 +1,21 @@
 module PostsHelper
-  def posts_link
+  def posts_button_link
     button_link_primary t("posts.index.title"), posts_path if policy(:post).index?
   end
 
-  def back_to_posts_link
+  def back_to_posts_button_link
     button_link_secondary t("back_to_index"), posts_path if policy(:post).index?
   end
 
-  def post_link(post)
+  def post_button_link(post)
     button_link_primary t("detail"), post if policy(post).show?
   end
 
-  def new_post_link
+  def new_post_button_link
     button_link_primary t("posts.new.title"), new_post_path if policy(:post).new?
   end
 
-  def edit_post_link(post)
+  def edit_post_button_link(post)
     button_link_primary t("edit"), [:edit, post] if policy(post).edit?
   end
 
