@@ -1,9 +1,10 @@
 module ScaffoldHelper
-  def index_lnk_to(name, model = nil, path: nil, **, &)
-    if model.nil?
-      model = name
+  def index_lnk_to(name, path = nil, model: nil, **, &)
+    if path.nil?
+      path = name
       name = t("#{i18n_key_from_model(model)}.index.title")
     end
+    model = path if model.nil?
 
     return unless policy_from_model(model).index?
 
@@ -15,11 +16,12 @@ module ScaffoldHelper
     lnk_to(name, path, **, &)
   end
 
-  def back_to_index_lnk_to(name, model = nil, path: nil, **, &)
-    if model.nil?
-      model = name
+  def back_to_index_lnk_to(name, path = nil, model: nil, **, &)
+    if path.nil?
+      path = name
       name = t("back_to_index")
     end
+    model = path if model.nil?
 
     return unless policy_from_model(model).index?
 
@@ -27,11 +29,12 @@ module ScaffoldHelper
     index_lnk_to(name, path, color: :secondary, **, &)
   end
 
-  def show_lnk_to(name, record = nil, path: nil, **, &)
-    if record.nil?
-      record = name
+  def show_lnk_to(name, path = nil, record: nil, **, &)
+    if path.nil?
+      path = name
       name = t("detail")
     end
+    record = path if record.nil?
 
     return unless policy(record).show?
 
@@ -39,11 +42,12 @@ module ScaffoldHelper
     lnk_to(name, path, **, &)
   end
 
-  def new_lnk_to(name, model = nil, path: nil, **, &)
-    if model.nil?
-      model = name
+  def new_lnk_to(name, path = nil, model: nil, **, &)
+    if path.nil?
+      path = name
       name = t("#{i18n_key_from_model(model)}.new.title")
     end
+    model = path if model.nil?
 
     return unless policy_from_model(model).new?
 
@@ -55,11 +59,12 @@ module ScaffoldHelper
     lnk_to(name, path, type: :link, **, &)
   end
 
-  def edit_lnk_to(name, record = nil, path: nil, **, &)
-    if record.nil?
-      record = name
+  def edit_lnk_to(name, path = nil, record: nil, **, &)
+    if path.nil?
+      path = name
       name = t("edit")
     end
+    record = path if record.nil?
 
     return unless policy(record).edit?
 
@@ -67,11 +72,12 @@ module ScaffoldHelper
     lnk_to(name, path, **, &)
   end
 
-  def destroy_btn_to(name, record = nil, path: nil, **, &)
-    if record.nil?
-      record = name
+  def destroy_btn_to(name, path = nil, record: nil, **, &)
+    if path.nil?
+      path = name
       name = t("destroy")
     end
+    record = path if record.nil?
 
     return unless policy(record).destroy?
 
