@@ -1,7 +1,7 @@
 <div>
   <div class="horizontal-center justify-between">
     <%= h1 t(".title"), class: "my-default" %>
-    <%= new_post_btn_link %>
+    <%= new_lnk_to Post, type: :button %>
   </div>
 
   <%= render partial: "index_post", collection: @posts, as: :post %>
