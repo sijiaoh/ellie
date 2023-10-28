@@ -1,6 +1,6 @@
 <div>
   <div class="scaffold-buttons my-default">
-    <%= edit_user_setting_btn_link @setting %>
+    <%= lnk_to t("edit"), edit_user_setting_path(@setting.user, @setting), type: :button %>
   </div>
 
   <%= render @setting %>
