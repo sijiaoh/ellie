@@ -1,33 +1,25 @@
 module PostsHelper
   def posts_btn_link
-    btn_to t("posts.index.title"), posts_path, type: :link if policy(:post).index?
+    index_lnk_to(Post, type: :button)
   end
 
   def back_to_posts_btn_link
-    btn_to t("back_to_index"), posts_path, type: :link, color: :secondary if policy(:post).index?
+    back_to_index_lnk_to(Post, type: :button)
   end
 
   def post_btn_link(post)
-    btn_to t("detail"), post, type: :link if policy(post).show?
+    show_lnk_to(post, type: :button)
   end
 
   def new_post_btn_link
-    btn_to t("posts.new.title"), new_post_path, type: :link if policy(:post).new?
+    new_lnk_to(Post, type: :button)
   end
 
   def edit_post_btn_link(post)
-    btn_to t("edit"), [:edit, post], type: :link if policy(post).edit?
+    edit_lnk_to(post, type: :button)
   end
 
   def destroy_post_button(post)
-    return unless policy(post).destroy?
-
-    btn_to(
-      t("destroy"),
-      post,
-      method: :delete,
-      form: { data: { turbo_confirm: t("destroy_confirm") } },
-      color: :danger
-    )
+    destroy_btn_to(post)
   end
 end
