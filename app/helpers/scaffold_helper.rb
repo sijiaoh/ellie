@@ -2,9 +2,10 @@ module ScaffoldHelper
   def index_lnk_to(name, path = nil, model: nil, **, &)
     if path.nil?
       path = name
-      name = t("#{i18n_key_from_model(model)}.index.title")
+      name = nil
     end
     model = path if model.nil?
+    name = t("#{i18n_key_from_model(model)}.index.title") if name.nil?
 
     return unless policy_from_model(model).index?
 
@@ -45,9 +46,10 @@ module ScaffoldHelper
   def new_lnk_to(name, path = nil, model: nil, **, &)
     if path.nil?
       path = name
-      name = t("#{i18n_key_from_model(model)}.new.title")
+      name = nil
     end
     model = path if model.nil?
+    name = t("#{i18n_key_from_model(model)}.new.title") if name.nil?
 
     return unless policy_from_model(model).new?
 
