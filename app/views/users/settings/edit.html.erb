@@ -2,7 +2,7 @@
   <%= h1 t(".title"), class: "my-default" %>
 
   <div class="scaffold-buttons my-default">
-    <%= lnk_to t("detail"), user_setting_path(@setting.user, @setting), type: :button %>
+    <%= show_lnk_to @setting, path: user_setting_path(@setting.user, @setting), type: :button %>
   </div>
 
   <%= render "form", setting: @setting %>
