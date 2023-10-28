@@ -5,11 +5,12 @@ module ScaffoldHelper
       name = nil
     end
     model = path if model.nil?
-    name = t("#{i18n_key_from_model(model)}.index.title") if name.nil?
 
     return unless policy_from_model(model).index?
 
-    if path.nil?
+    name = t("#{i18n_key_from_model(model)}.index.title") if name.nil?
+
+    if path == model
       route_key = model.model_name.route_key
       path = send("#{route_key}_path")
     end
@@ -17,16 +18,12 @@ module ScaffoldHelper
     lnk_to(name, path, **, &)
   end
 
-  def back_to_index_lnk_to(name, path = nil, model: nil, **, &)
+  def back_to_index_lnk_to(name, path = nil, **, &)
     if path.nil?
       path = name
       name = t("back_to_index")
     end
-    model = path if model.nil?
 
-    return unless policy_from_model(model).index?
-
-    path = model if path.nil?
     index_lnk_to(name, path, color: :secondary, **, &)
   end
 
@@ -39,7 +36,6 @@ module ScaffoldHelper
 
     return unless policy(record).show?
 
-    path = record if path.nil?
     lnk_to(name, path, **, &)
   end
 
@@ -49,11 +45,12 @@ module ScaffoldHelper
       name = nil
     end
     model = path if model.nil?
-    name = t("#{i18n_key_from_model(model)}.new.title") if name.nil?
 
     return unless policy_from_model(model).new?
 
-    if path.nil?
+    name = t("#{i18n_key_from_model(model)}.new.title") if name.nil?
+
+    if path == model
       route_key = model.model_name.singular_route_key
       path = send("new_#{route_key}_path")
     end
@@ -70,7 +67,7 @@ module ScaffoldHelper
 
     return unless policy(record).edit?
 
-    path = [:edit, record] if path.nil?
+    path = [:edit, record] if path == record
     lnk_to(name, path, **, &)
   end
 
@@ -83,7 +80,6 @@ module ScaffoldHelper
 
     return unless policy(record).destroy?
 
-    path = record if path.nil?
     btn_to(
       name,
       path,
