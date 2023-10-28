@@ -22,10 +22,6 @@ module RailsTemplate
         template "partial.html.erb", File.join("app/views", controller_file_path, "_#{singular_table_name}.html.erb")
       end
 
-      def copy_helper_file
-        template "helper.rb.erb.tt", File.join("app/helpers", "#{controller_file_path}_helper.rb")
-      end
-
       private
 
       def view_i18n_scope

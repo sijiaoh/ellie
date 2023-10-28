@@ -2,7 +2,7 @@
   <div class="my-default font-bold"><%%= <%= singular_table_name %>.id %></div>
 
   <div class="scaffold-buttons my-default">
-    <%%= <%= singular_route_name %>_link <%= singular_table_name %> %>
-    <%%= edit_<%= singular_route_name %>_link <%= singular_table_name %> %>
+    <%%= show_lnk_to <%= singular_table_name %> %>
+    <%%= edit_lnk_to <%= singular_table_name %> %>
   </div>
 </div>

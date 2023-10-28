@@ -3,5 +3,5 @@
 
   <%%= render "form", <%= singular_table_name %>: @<%= singular_table_name %> %>
 
-  <%%= back_to_<%= plural_route_name %>_link %>
+  <%%= back_to_index_lnk_to <%= class_name %> %>
 </div>

@@ -1,8 +1,8 @@
 <div>
   <div class="scaffold-buttons my-default">
-    <%%= edit_<%= singular_route_name %>_link @<%= singular_table_name %> %>
-    <%%= destroy_<%= singular_route_name %>_button @<%= singular_table_name %> %>
-    <%%= back_to_<%= plural_route_name %>_link %>
+    <%%= edit_lnk_to @<%= singular_table_name %> %>
+    <%%= destroy_btn_to @<%= singular_table_name %> %>
+    <%%= back_to_index_lnk_to <%= class_name %> %>
   </div>
 
   <%%= render "<%= singular_table_name %>", <%= singular_table_name %>: @<%= singular_table_name %> %>
