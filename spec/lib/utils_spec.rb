@@ -1,8 +1,8 @@
 require "rails_helper"
 
 describe Utils do
-  describe ".env_or_credential" do
-    subject(:returns) { Utils.env_or_credential key }
+  describe ".env_or_secret" do
+    subject(:returns) { Utils.env_or_secret key }
 
     let(:key) { "a.b_c" }
     let(:env_value) { "env_value" }
@@ -17,7 +17,7 @@ describe Utils do
     shared_context "with credentials" do
       before do
         a = ActiveSupport::InheritableOptions.new(b_c: credentials_value)
-        allow(Rails.application.credentials).to receive(:a).and_return(a)
+        allow(Rails.application.secrets).to receive(:a).and_return(a)
       end
     end
 

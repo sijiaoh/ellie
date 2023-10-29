@@ -20,7 +20,7 @@ Devise.setup do |config|
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
 
-  google_client_id = Utils.env_or_credential "oauth.google_client_id", ""
-  google_client_secret = Utils.env_or_credential "oauth.google_client_secret", ""
+  google_client_id = Utils.env_or_secret "oauth.google_client_id", ""
+  google_client_secret = Utils.env_or_secret "oauth.google_client_secret", ""
   config.omniauth :google_oauth2, google_client_id, google_client_secret
 end
