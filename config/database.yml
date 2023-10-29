@@ -1,11 +1,11 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
+  username: postgres
   password: password
   host: <%= Utils.env_or_credential "rails_template_database_host", "127.0.0.1" %>
-  port: <%= Utils.env_or_credential "rails_template_database_port", "3306" %>
+  port: <%= Utils.env_or_credential "rails_template_database_port", "5432" %>
 
 development:
   <<: *default

@@ -4,7 +4,7 @@ ruby "3.2.1"
 
 gem "bootsnap", require: false
 gem "importmap-rails"
-gem "mysql2"
+gem "pg"
 gem "puma"
 gem "rails"
 gem "redis"

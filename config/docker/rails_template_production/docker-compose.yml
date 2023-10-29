@@ -2,14 +2,13 @@ version: "3"
 services:
   db:
     container_name: rails_template_production_db
-    image: mysql:8
+    image: postgres:15.4
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: rails_template_production
-      MYSQL_USER: rails_template
-      MYSQL_PASSWORD: ${RAILS_TEMPLATE_DATABASE_PASSWORD}
+      POSTGRES_USER: rails_template
+      POSTGRES_PASSWORD: ${RAILS_TEMPLATE_DATABASE_PASSWORD}
+      POSTGRES_DB: rails_template_production
     volumes:
-      - rails_template_production_db_data:/var/lib/mysql
+      - rails_template_production_db_data:/var/lib/postgresql
   app:
     container_name: rails_template_production
     image: rails_template_production

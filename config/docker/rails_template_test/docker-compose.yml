@@ -2,11 +2,11 @@ version: "3.8"
 services:
   db:
     container_name: rails_template_test_db
-    image: mysql:8
+    image: postgres:15.4
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      POSTGRES_PASSWORD: password
     healthcheck:
-      test: mysqladmin ping -h 127.0.0.1
+      test: pg_isready -U postgres
   app:
     container_name: rails_template_test
     image: rails_template_test
