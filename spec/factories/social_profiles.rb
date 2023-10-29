@@ -5,8 +5,8 @@
 #  id         :bigint           not null, primary key
 #  user_id    :bigint           not null
 #  provider   :integer          not null
-#  uid        :string(255)      not null
-#  email      :string(255)      not null
+#  uid        :string           not null
+#  email      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -5,7 +5,7 @@
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  hashid     :string(255)
+#  hashid     :string
 #
 FactoryBot.define do
   factory :user do

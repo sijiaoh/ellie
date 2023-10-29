@@ -3,13 +3,13 @@
 # Table name: posts
 #
 #  id          :bigint           not null, primary key
-#  title       :string(255)      not null
-#  content     :text(65535)      not null
+#  title       :string           not null
+#  content     :text             not null
 #  published   :boolean          default(FALSE), not null
 #  author_id   :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  hashid      :string(255)
+#  hashid      :string
 #  editor_type :integer          not null
 #
 require "rails_helper"

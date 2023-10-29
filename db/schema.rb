@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_03_12_142302) do
-  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
     t.boolean "published", default: false, null: false
@@ -24,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_03_12_142302) do
     t.index ["hashid"], name: "index_posts_on_hashid", unique: true
   end
 
-  create_table "roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
     t.bigint "resource_id"
@@ -35,7 +38,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_03_12_142302) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
   end
 
-  create_table "social_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "social_profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "provider", null: false
     t.string "uid", null: false
@@ -47,14 +50,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_03_12_142302) do
     t.index ["user_id"], name: "index_social_profiles_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "hashid"
     t.index ["hashid"], name: "index_users_on_hashid", unique: true
   end
 
-  create_table "users_roles", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users_roles", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
@@ -62,7 +65,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_03_12_142302) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  create_table "users_settings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users_settings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "editor_type", null: false
     t.datetime "created_at", null: false
