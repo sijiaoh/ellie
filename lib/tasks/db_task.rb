@@ -8,9 +8,10 @@ class DbTask < BackendTask
       version: "15.4",
       port: database_config["port"],
       container_port: "5432",
-      volume_path: "/var/lib/postgresql",
+      volume_path: "/var/lib/postgresql/data",
       env: [
-        "POSTGRES_PASSWORD=#{database_config['password']}"
+        "POSTGRES_PASSWORD=#{database_config['password']}",
+        "PGDATA=/var/lib/postgresql/data/pgdata"
       ]
     )
   end

@@ -7,8 +7,9 @@ services:
       POSTGRES_USER: rails_template
       POSTGRES_PASSWORD: ${RAILS_TEMPLATE_DATABASE_PASSWORD}
       POSTGRES_DB: rails_template_production
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - rails_template_production_db_data:/var/lib/postgresql
+      - rails_template_production_db_data:/var/lib/postgresql/data
   app:
     container_name: rails_template_production
     image: rails_template_production
