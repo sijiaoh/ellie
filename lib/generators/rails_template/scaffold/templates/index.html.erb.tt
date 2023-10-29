@@ -1,7 +1,7 @@
 <div>
   <div class="horizontal-center justify-between">
     <%%= h1 t(".title"), class: "my-default" %>
-    <%%= new_lnk_to <%= class_name %> %>
+    <%%= new_lnk_to <%= class_name %>, type: :button %>
   </div>
 
   <%%= render partial: "index_<%= singular_table_name %>", collection: @<%= plural_table_name %>, as: :<%= singular_table_name %> %>

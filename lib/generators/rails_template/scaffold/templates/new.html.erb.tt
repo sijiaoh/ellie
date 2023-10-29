@@ -3,5 +3,5 @@
 
   <%%= render "form", <%= singular_table_name %>: @<%= singular_table_name %> %>
 
-  <%%= back_to_index_lnk_to <%= class_name %> %>
+  <%%= back_to_index_lnk_to <%= class_name %>, type: :button %>
 </div>
