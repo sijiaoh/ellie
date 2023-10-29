@@ -22,6 +22,11 @@ module RailsTemplate
         template "partial.html.erb", File.join("app/views", controller_file_path, "_#{singular_table_name}.html.erb")
       end
 
+      def copy_policy_file
+        template "policy.rb.erb.tt",
+                 File.join("app/policies", controller_class_path, "#{singular_table_name}_policy.rb")
+      end
+
       private
 
       def view_i18n_scope
