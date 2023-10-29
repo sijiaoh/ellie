@@ -46,6 +46,12 @@ RSpec/MultipleExpectations:
 RSpec/DescribedClass:
   EnforcedStyle: explicit
 
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
 
