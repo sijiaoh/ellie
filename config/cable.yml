@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= Utils.env_or_secret "rails_template_redis_url", "redis://127.0.0.1:6379/1" %>
+  url: <%= Utils.env_or_credential "rails_template_redis_url", "redis://127.0.0.1:6379/1" %>
   channel_prefix: rails_test_production

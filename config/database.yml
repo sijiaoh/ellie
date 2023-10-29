@@ -4,8 +4,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   password: password
-  host: <%= Utils.env_or_secret "rails_template_database_host", "127.0.0.1" %>
-  port: <%= Utils.env_or_secret "rails_template_database_port", "5432" %>
+  host: <%= Utils.env_or_credential "rails_template_database_host", "127.0.0.1" %>
+  port: <%= Utils.env_or_credential "rails_template_database_port", "5432" %>
 
 development:
   <<: *default
@@ -19,4 +19,4 @@ production:
   <<: *default
   database: rails_template_production
   username: rails_template
-  password: <%= Utils.env_or_secret "rails_template_database_password", ("" unless Rails.env.production?) %>
+  password: <%= Utils.env_or_credential "rails_template_database_password", ("" unless Rails.env.production?) %>
