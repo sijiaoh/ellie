@@ -28,7 +28,7 @@ class MarkdownInput < SimpleForm::Inputs::Base
 
   private
 
-  delegate :content_tag, :class_names, :button_primary_tag, :markdown_viewer, to: :helpers
+  delegate :content_tag, :class_names, :btn_tag, :markdown_viewer, to: :helpers
 
   def editor_viewer
     content_tag(:div, class: "flex flex-1") do
@@ -63,8 +63,9 @@ class MarkdownInput < SimpleForm::Inputs::Base
         hidden: !toggle_button_enable
       )
     ) do
-      button_primary_tag(
+      btn_tag(
         t("inputs.markdown_input.toggle"),
+        color: :primary,
         type: :button,
         "data-markdown-editor-target": "toggleButton",
         "data-action": "markdown-editor#toggle"
