@@ -102,7 +102,7 @@ module ScaffoldHelper
   end
 
   def policy_from_model(model)
-    policy_token = model.model_name.singular.to_sym
+    policy_token = model.model_name.name.downcase.split("::").map(&:to_sym)
     policy(policy_token)
   end
 end
