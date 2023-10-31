@@ -4,7 +4,9 @@
     <%%= new_lnk_to <%= class_name %>, type: :button %>
   </div>
 
-  <%%= render partial: "index_<%= singular_table_name %>", collection: @<%= plural_table_name %>, as: :<%= singular_table_name %> %>
+  <div class="my-default">
+    <%%= render "<%= singular_table_name %>_index", posts: @<%= plural_table_name %> %>
+  </div>
 
   <%%= paginate @<%= plural_table_name %> %>
 </div>

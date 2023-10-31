@@ -1,8 +1,0 @@
-<div id="<%%= dom_id <%= singular_table_name %> %>" class="index-<%= singular_table_name %>">
-  <div class="my-default font-bold"><%%= <%= singular_table_name %>.id %></div>
-
-  <div class="scaffold-buttons my-default">
-    <%%= show_lnk_to <%= singular_table_name %>, type: :button %>
-    <%%= edit_lnk_to <%= singular_table_name %>, type: :button %>
-  </div>
-</div>

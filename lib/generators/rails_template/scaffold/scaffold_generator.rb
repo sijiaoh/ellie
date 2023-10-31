@@ -17,8 +17,8 @@ module RailsTemplate
           end
         end
 
-        template "index_partial.html.erb",
-                 File.join("app/views", controller_file_path, "_index_#{singular_table_name}.html.erb")
+        template "partial_index.html.erb",
+                 File.join("app/views", controller_file_path, "_#{singular_table_name}_index.html.erb")
         template "partial.html.erb", File.join("app/views", controller_file_path, "_#{singular_table_name}.html.erb")
       end
 
@@ -39,7 +39,7 @@ module RailsTemplate
           File.basename(path, ".html.erb.tt")
         end
 
-        reject_list = %w[index_partial partial]
+        reject_list = %w[partial_index partial]
         names.reject do |name|
           reject_list.include? name
         end

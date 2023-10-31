@@ -4,7 +4,7 @@
     <%= new_lnk_to Post, type: :button %>
   </div>
 
-  <%= render partial: "index_post", collection: @posts, as: :post %>
+  <%= render "post_index", posts: @posts %>
 
   <%= paginate @posts %>
 </div>
