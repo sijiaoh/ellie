@@ -1,7 +1,7 @@
 <div>
   <%%= h1 t(".title"), class: "my-default" %>
 
-  <%%= render "form", <%= singular_table_name %>: @<%= singular_table_name %> %>
+  <%%= render "form", <%= file_name %>: @<%= file_name %> %>
 
   <%%= back_to_index_lnk_to <%= class_name %>, type: :button %>
 </div>

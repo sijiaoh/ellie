@@ -1,4 +1,4 @@
-<%%= custom_form_for <%= singular_table_name %> do |f| %>
+<%%= custom_form_for <%= file_name %> do |f| %>
   <%%= f.base_errors %>
 
 <%- attributes.each do |attribute| -%>

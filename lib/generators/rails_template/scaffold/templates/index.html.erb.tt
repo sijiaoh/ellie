@@ -5,8 +5,8 @@
   </div>
 
   <div class="my-default">
-    <%%= render "<%= singular_table_name %>_index", posts: @<%= plural_table_name %> %>
+    <%%= render "<%= file_name %>_index", <%= plural_file_name %>: @<%= plural_file_name %> %>
   </div>
 
-  <%%= paginate @<%= plural_table_name %> %>
+  <%%= paginate @<%= plural_file_name %> %>
 </div>

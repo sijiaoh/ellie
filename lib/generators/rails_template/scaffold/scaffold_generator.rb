@@ -18,13 +18,13 @@ module RailsTemplate
         end
 
         template "partial_index.html.erb",
-                 File.join("app/views", controller_file_path, "_#{singular_table_name}_index.html.erb")
-        template "partial.html.erb", File.join("app/views", controller_file_path, "_#{singular_table_name}.html.erb")
+                 File.join("app/views", controller_file_path, "_#{file_name}_index.html.erb")
+        template "partial.html.erb", File.join("app/views", controller_file_path, "_#{file_name}.html.erb")
       end
 
       def copy_policy_file
         template "policy.rb.erb.tt",
-                 File.join("app/policies", controller_class_path, "#{singular_table_name}_policy.rb")
+                 File.join("app/policies", controller_class_path, "#{file_name}_policy.rb")
       end
 
       private
