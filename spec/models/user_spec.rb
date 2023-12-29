@@ -5,7 +5,6 @@
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  hashid     :string
 #
 require "rails_helper"
 
@@ -18,13 +17,6 @@ describe User do
 
   describe "validations" do
     it { is_expected.to validate_acceptance_of(:terms_of_service) }
-  end
-
-  describe "#hashid" do
-    it "generates after save automatically" do
-      user = create(:user)
-      expect(user.hashid).to be_truthy
-    end
   end
 
   describe "#terms_of_service" do

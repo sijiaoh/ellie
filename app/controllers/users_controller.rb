@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = policy_scope(User).find_by!(hashid: params[:hashid])
+    @user = policy_scope(User).find(params[:id])
     authorize @user
   end
 

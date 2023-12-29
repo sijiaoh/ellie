@@ -9,11 +9,9 @@
 #  author_id   :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  hashid      :string
 #  editor_type :integer          not null
 #
 class Post < ApplicationRecord
-  include HashidSluggable
   include EditorTypeEnum
   include HasContent
 

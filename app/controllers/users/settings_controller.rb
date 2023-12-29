@@ -19,7 +19,7 @@ module Users
     private
 
     def set_setting
-      user = User.find_by!(hashid: params[:user_hashid])
+      user = User.find(params[:user_id])
       @setting = authorize(user.setting)
     end
 

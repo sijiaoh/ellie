@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = policy_scope(Post).find_by!(hashid: params[:hashid])
+    @post = policy_scope(Post).find(params[:id])
     authorize @post
   end
 

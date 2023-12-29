@@ -5,11 +5,8 @@
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  hashid     :string
 #
 class User < ApplicationRecord
-  include HashidSluggable
-
   devise :omniauthable, omniauth_providers: [:google_oauth2]
   rolify
 

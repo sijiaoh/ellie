@@ -16,8 +16,6 @@ gem "tzinfo-data", platforms: %i[mswin mswin64 mingw x64_mingw jruby]
 
 gem "rails-i18n"
 
-gem "hashids"
-
 gem "devise"
 gem "devise-i18n"
 gem "omniauth-google-oauth2"

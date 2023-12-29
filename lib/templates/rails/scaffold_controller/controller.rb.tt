@@ -45,7 +45,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   private
 
   def set_<%= file_name %>
-    @<%= file_name %> = policy_scope(<%= class_name %>).find_by!(hashid: params[:hashid])
+    @<%= file_name %> = policy_scope(<%= class_name %>).find(params[:id])
     authorize @<%= file_name %>
   end
 

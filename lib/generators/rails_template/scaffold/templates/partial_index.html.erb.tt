@@ -1,7 +1,7 @@
 <div class="<%= file_name %>-index">
   <%% <%= plural_file_name %>.each do |<%= file_name %>| %>
     <div id="<%%= dom_id <%= file_name %> %>" class="<%= file_name %>">
-      <div class="my-default font-bold"><%%= <%= file_name %>.hashid %></div>
+      <div class="my-default font-bold"><%%= <%= file_name %>.id %></div>
 
       <div class="scaffold-buttons my-default">
         <%%= show_lnk_to <%= file_name %>, type: :button %>
