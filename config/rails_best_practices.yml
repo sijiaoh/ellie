@@ -29,12 +29,18 @@ RemoveUnusedMethodsInControllersCheck:
       [
         "ApplicationController#render_forbidden",
         "ApplicationController#render_not_found",
+        "ApplicationController#notice_message",
       ],
   }
 RemoveUnusedMethodsInHelpersCheck:
   {
     except_methods:
       [
+        "ScaffoldHelper#back_to_index_lnk_to",
+        "ScaffoldHelper#show_lnk_to",
+        "ScaffoldHelper#new_lnk_to",
+        "ScaffoldHelper#edit_lnk_to",
+        "ScaffoldHelper#destroy_btn_to",
         "ButtonHelper#btn_primary_style",
         "ButtonHelper#btn_secondary_style",
         "ButtonHelper#btn_danger_style",
