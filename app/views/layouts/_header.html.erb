@@ -4,7 +4,6 @@
   </div>
   <div class="horizontal">
     <% if user.present? %>
-      <%= btn_to Users::Setting.model_name.human, user_setting_path(current_user), type: :link %>
       <%= btn_to t("sign_out"), sign_out_path, method: :delete %>
     <% else %>
       <%= btn_to t("sessions.new.title"), sign_in_path, type: :link %>

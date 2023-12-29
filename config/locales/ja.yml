@@ -1,24 +1,8 @@
 ja:
   activerecord:
-    models:
-      post: "投稿"
-      users/setting: "設定"
     attributes:
       user:
         terms_of_service: "利用規約"
-      users/setting:
-        editor_type: "テキストエディタ"
-      post:
-        title: "タイトル"
-        content: "内容"
-        published: "公開"
-
-  enumerize:
-    users/setting:
-      editor_type:
-        textarea: "テキストエリア"
-        wysiwyg: "WYSIWYG"
-        markdown: "マークダウン"
 
   title: "RailsTemplate"
   sign_out: サインアウト
@@ -43,20 +27,3 @@ ja:
       title: "ユーザー一覧"
     new:
       title: "ユーザー登録"
-    settings:
-      edit:
-        title: "投稿編集"
-  posts:
-    index:
-      title: "投稿一覧"
-    new:
-      title: "新規投稿"
-    edit:
-      title: "投稿編集"
-    post:
-      publishing: "公開中"
-      unpublished: "未公開"
-
-  inputs:
-    markdown_input:
-      toggle: "切り替え"

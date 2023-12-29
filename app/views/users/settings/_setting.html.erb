@@ -1,8 +1,0 @@
-<div id="<%= dom_id setting %>">
-  <%= h1 Users::Setting.model_name.human, class: "my-default" %>
-
-  <div class="horizontal-center gap-2 my-default">
-    <div class="font-medium"><%= Users::Setting.human_attribute_name :editor_type %>:</div>
-    <%= setting.editor_type.text %>
-  </div>
-</div>

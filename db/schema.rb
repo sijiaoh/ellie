@@ -10,20 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_03_12_142302) do
+ActiveRecord::Schema[7.1].define(version: 2022_01_08_162057) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "content", null: false
-    t.boolean "published", default: false, null: false
-    t.bigint "author_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "editor_type", null: false
-    t.index ["author_id"], name: "index_posts_on_author_id"
-  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
@@ -61,15 +50,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_03_12_142302) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
-  create_table "users_settings", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.integer "editor_type", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_users_settings_on_user_id", unique: true
-  end
-
-  add_foreign_key "posts", "users", column: "author_id"
   add_foreign_key "social_profiles", "users"
-  add_foreign_key "users_settings", "users"
 end

@@ -10,9 +10,7 @@ require "rails_helper"
 
 describe User do
   describe "associations" do
-    it { is_expected.to have_one(:setting).class_name("Users::Setting").dependent(:destroy) }
     it { is_expected.to have_many(:social_profiles).dependent(:destroy) }
-    it { is_expected.to have_many(:posts).inverse_of(:author).dependent(:destroy) }
   end
 
   describe "validations" do
@@ -56,15 +54,6 @@ describe User do
     it "creates user and social_profile" do
       expect { user.save! }
         .to change(User, :count).by(1).and change(SocialProfile, :count).by(1)
-    end
-  end
-
-  describe "#create_setting" do
-    subject(:user) { build(:user) }
-
-    it "creates setting" do
-      user.save!
-      expect(user.setting).to be_truthy
     end
   end
 end
