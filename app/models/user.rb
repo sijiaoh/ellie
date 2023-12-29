@@ -8,7 +8,6 @@
 #
 class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:google_oauth2]
-  rolify
 
   has_many :social_profiles, dependent: :destroy
 

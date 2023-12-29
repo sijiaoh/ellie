@@ -7,11 +7,6 @@
 #  updated_at :datetime         not null
 #
 FactoryBot.define do
-  factory :user do
-    trait :admin do
-      after :create do |user|
-        user.add_role :admin
-      end
-    end
+  factory :user do # disable:rubocop Layout/EmptyComment
   end
 end
